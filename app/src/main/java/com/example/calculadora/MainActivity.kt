@@ -1,5 +1,6 @@
 package com.example.calculadora
 
+import OperationUi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +11,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val TAG = MainActivity::class.java.simpleName
-
+    private val operations = mutableListOf<OperationUi>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -98,9 +99,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun equals() {
         Log.i(TAG, "Click no botão =")
-        val expression = ExpressionBuilder(binding.textVisor.text.toString()).build()
-        binding.textVisor.text = expression.evaluate().toString()
-        Log.i(TAG, "O resultado da expressão é ${binding.textVisor.text}")
+        val expression = binding.textVisor.text.toString()
+        val result = ExpressionBuilder(expression).build().evaluate().toString()
+        val timestamp = System.currentTimeMillis()
+        val operation = OperationUi(expression, result, timestamp)
+        operations.add(operation)
+        binding.textVisor.text = result
+        Log.i(TAG, "O resultado da expressão é $result")
     }
     private fun addSymbol(symbol: String) {
         Log.i(TAG, "Click no botão $symbol")
