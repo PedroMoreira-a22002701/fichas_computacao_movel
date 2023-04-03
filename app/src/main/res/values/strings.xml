@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="submit">Submeter</string>
+    <string name="cancel">Cancelar</string>
+</resources>
