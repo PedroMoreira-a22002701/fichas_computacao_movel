@@ -3,4 +3,11 @@
     <string name="submit">Submeter</string>
     <string name="cancel">Cancelar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Drawer -->
+    <string name="calculator">Calculadora</string>
+    <string name="history">Histórico</string>
+    <string name="drawer_open">Aberto</string>
+    <string name="drawer_close">Fechado</string>
+
 </resources>

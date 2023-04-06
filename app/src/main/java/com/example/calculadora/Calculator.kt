@@ -58,6 +58,10 @@ class Calculator {
             expression.substring(lastOperatorIndex)
         }
     }
+    fun history(): List<Operation> {
+        Log.i(TAG, "Getting operations history")
+        return operations
+    }
 
 }
 
