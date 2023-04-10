@@ -59,6 +59,7 @@ class Calculator {
         }
     }
     fun history(): List<Operation> {
+        Log.i(TAG,operations.toString())
         Log.i(TAG, "Getting operations history")
         return operations
     }

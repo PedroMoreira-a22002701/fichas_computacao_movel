@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 object NavigationManager {
+    private var calculator: Calculator? = null
 
     private fun placeFragment(fm: FragmentManager, fragment: Fragment) {
         val transition = fm.beginTransaction()
@@ -15,9 +16,16 @@ object NavigationManager {
     fun goToCalculatorFragment(fm: FragmentManager) {
         placeFragment(fm, CalculatorFragment())
     }
+
     fun goToHistoryFragment(fm: FragmentManager) {
         placeFragment(fm, HistoryFragment())
     }
 
+    fun setCalculator(calculator: Calculator) {
+        this.calculator = calculator
+    }
 
+    fun getCalculator(): Calculator? {
+        return calculator
+    }
 }

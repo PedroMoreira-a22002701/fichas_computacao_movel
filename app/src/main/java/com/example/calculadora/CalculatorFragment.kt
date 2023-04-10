@@ -13,7 +13,7 @@ import com.example.calculadora.databinding.FragmentCalculatorBinding
 
 class CalculatorFragment : Fragment() {
     private lateinit var binding: FragmentCalculatorBinding
-    private val calculator = Calculator()
+    private val calculator = NavigationManager.getCalculator()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,22 +82,22 @@ class CalculatorFragment : Fragment() {
         }
 
         binding.buttonAdition.setOnClickListener {
-            calculator.addSymbol("+",binding)
+            calculator?.addSymbol("+",binding)
         }
         binding.buttonDot.setOnClickListener {
-            calculator.addSymbol(".",binding)
+            calculator?.addSymbol(".",binding)
         }
         binding.buttonEquals.setOnClickListener {
-            calculator.equals(binding)
+            calculator?.equals(binding)
         }
         binding.buttonReset.setOnClickListener {
-            calculator.clear(binding)
+            calculator?.clear(binding)
         }
         binding.buttonBackspace.setOnClickListener {
-            calculator.backspace(binding)
+            calculator?.backspace(binding)
         }
         binding.buttonInterrogation.setOnClickListener {
-            val lastOperation = calculator.getLastOperation(binding.textVisor.text.toString())
+            val lastOperation = calculator?.getLastOperation(binding.textVisor.text.toString())
             Log.i(TAG, "Última operação: $lastOperation")
         }
 
